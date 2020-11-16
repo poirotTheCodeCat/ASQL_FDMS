@@ -1,0 +1,13 @@
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.exe
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.deps.json
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.runtimeconfig.json
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.runtimeconfig.dev.json
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.dll
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.pdb
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.csprojAssemblyReference.cache
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.AssemblyInfoInputs.cache
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.AssemblyInfo.cs
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.dll
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.pdb
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.csproj.CopyComplete

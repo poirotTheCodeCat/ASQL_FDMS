@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dg_sm_jd_em_FDMS", "dg_sm_jd_em_FDMS.csproj", "{F9156508-432C-4816-B323-FE341386C9AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FDMS_Aircraft_Transmission_System", "..\FDMS_Aircraft_Transmission_System\FDMS_Aircraft_Transmission_System.csproj", "{4029B8A2-A461-45A2-AC3E-894073C5CF28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9156508-432C-4816-B323-FE341386C9AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9156508-432C-4816-B323-FE341386C9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9156508-432C-4816-B323-FE341386C9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9156508-432C-4816-B323-FE341386C9AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9322E572-D4C6-476E-A702-4824598422DC}
+	EndGlobalSection
+EndGlobal
