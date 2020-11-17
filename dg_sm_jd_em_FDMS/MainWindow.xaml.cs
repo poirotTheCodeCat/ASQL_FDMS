@@ -18,6 +18,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
+using System.Data;
 
 namespace dg_sm_jd_em_FDMS
 {
@@ -34,6 +35,8 @@ namespace dg_sm_jd_em_FDMS
         private List<Telemetry> searchTel;
         private String dbConStr;
         public bool realTimeOn;
+        private DataTable liveTable;
+        private DataTable searchTable;
 
         public MainWindow()
         {
