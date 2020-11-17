@@ -54,8 +54,8 @@ namespace dg_sm_jd_em_FDMS
 
             // bind the database to the live telemetry list
             realTimeGrid.ItemsSource = liveTel;
-            searchGrid.ItemsSource = searchTel;
 
+            //searchGrid.ItemsSource = searchTel;
 
             // initialize the tcp socket listener
             // set the port and Ip address
@@ -183,16 +183,18 @@ namespace dg_sm_jd_em_FDMS
             else
             {
                 searchTel.Clear();
+                searchGrid.ItemsSource = null;
+                searchGrid.Items.Clear();
 
                 String search = searchTxtBox.Text;
                 List<Telemetry> telSearch = SqlDataAccess.getRecords(search, dbConStr);
-                if(telSearch != null)
+                if(telSearch != null && telSearch.Count != 0)
                 {
                     foreach (Telemetry tel in telSearch)
                     {
                         searchTel.Add(tel);
                     }
-                    
+                    searchGrid.ItemsSource = searchTel;
                 }
                 else
                 {
