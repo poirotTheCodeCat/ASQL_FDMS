@@ -55,6 +55,7 @@ namespace dg_sm_jd_em_FDMS
             // bind the database to the live telemetry list
             realTimeGrid.ItemsSource = liveTel;
 
+
             //searchGrid.ItemsSource = searchTel;
 
             // initialize the tcp socket listener
@@ -140,8 +141,11 @@ namespace dg_sm_jd_em_FDMS
                         // if live data is on and the return is not Null then - add the new file to live_telemetry list
                         if (realTimeOn == true)
                         {
+                            realTimeGrid.ItemsSource = null;
+                            realTimeGrid.Items.Clear();
                             liveTel.Add(telRecord);
                             stream.Write(bytes);    // send confirmation response
+                            realTimeGrid.ItemsSource = liveTel;
                         }
                     }
                     catch

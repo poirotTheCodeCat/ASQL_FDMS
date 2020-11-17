@@ -19,7 +19,7 @@
                         <ColumnDefinition Width="581*"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Content="Enable Real Time"  Margin="10,22,62,309" x:Name="real_time_switch" FontSize="14" IsChecked="True" Checked="real_time_switch_Checked" Unchecked="real_time_switch_Unchecked"/>
-                    <DataGrid AutoGenerateColumns="True" x:Name="realTimeGrid" Margin="27,49,29,48" Grid.ColumnSpan="2" />
+                    <DataGrid  x:Name="realTimeGrid" Margin="27,49,29,48" Grid.ColumnSpan="2" AutoGenerateColumns="True"/>
                     <TextBlock HorizontalAlignment="Left" Margin="15,315,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="realTimeError" Foreground="Red" RenderTransformOrigin="0.5,0.5" Width="620" Grid.ColumnSpan="2" Height="26">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
