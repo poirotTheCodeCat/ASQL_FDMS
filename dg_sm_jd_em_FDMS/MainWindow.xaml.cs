@@ -139,7 +139,7 @@ namespace dg_sm_jd_em_FDMS
                     // if correctly recieved - insert into database 
                     try
                     {
-                        // SqlDataAccess.insertRecord(telRecord, dbConStr);
+                        SqlDataAccess.insertRecord(telRecord, dbConStr);
 
                         // if live data is on and the return is not Null then - add the new file to live_telemetry list
                         if (realTimeOn == true)
