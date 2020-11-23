@@ -15,12 +15,13 @@
             <TabItem Header="Live Telemetry">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="213*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="178*"/>
                         <ColumnDefinition Width="581*"/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox Content="Enable Real Time"  Margin="10,22,62,309" x:Name="real_time_switch" FontSize="14" IsChecked="True" Checked="real_time_switch_Checked" Unchecked="real_time_switch_Unchecked"/>
-                    <DataGrid  x:Name="realTimeGrid" Margin="27,49,29,48" Grid.ColumnSpan="2" AutoGenerateColumns="True"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="15,315,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="realTimeError" Foreground="Red" RenderTransformOrigin="0.5,0.5" Width="620" Grid.ColumnSpan="2" Height="26">
+                    <CheckBox Content="Enable Real Time"  Margin="10,22,62,292" x:Name="real_time_switch" FontSize="14" IsChecked="True" Checked="real_time_switch_Checked" Unchecked="real_time_switch_Unchecked" Grid.ColumnSpan="2"/>
+                    <DataGrid  x:Name="realTimeGrid" Margin="27,76,29,21" Grid.ColumnSpan="3" AutoGenerateColumns="True"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="15,315,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="realTimeError" Foreground="Red" RenderTransformOrigin="0.5,0.5" Width="620" Grid.ColumnSpan="3" Height="26">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -34,9 +35,9 @@
             </TabItem>
             <TabItem Header="Search Telemetry">
                 <Grid>
-                    <DataGrid  x:Name="searchGrid" Margin="31,69,32,71" MinColumnWidth="33"  AutoGenerateColumns="True"/>
+                    <DataGrid  x:Name="searchGrid" Margin="31,100,32,40" MinColumnWidth="33"  AutoGenerateColumns="True"/>
                     <TextBox HorizontalAlignment="Left" Margin="348,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="31" FontSize="18" x:Name="searchTxtBox"/>
-                    <Button Content="Search" Margin="662,19,32,299" x:Name="searchBtn" Click="searchBtn_Click" Width="100" Height="35"/>
+                    <Button Content="Search" Margin="662,8,32,298" x:Name="searchBtn" Click="searchBtn_Click" Width="100"/>
                     <TextBlock HorizontalAlignment="Left" Margin="31,298,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="searchError" Foreground="Red" Width="529" Height="27"/>
                 </Grid>
             </TabItem>

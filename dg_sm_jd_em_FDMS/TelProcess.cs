@@ -17,7 +17,9 @@ namespace dg_sm_jd_em_FDMS
             try
             {
                 String recMessage = System.Text.Encoding.ASCII.GetString(packetBytes, 0, packetBytes.Length);
-                Packet packet = JsonConvert.DeserializeObject<Packet>(recMessage.Trim());
+                int endIndex = recMessage.IndexOf('\0');
+                String msg = recMessage.Substring(0, (endIndex));
+                Packet packet = JsonConvert.DeserializeObject<Packet>(msg.Trim());
                 return process(packet);
             }
             catch

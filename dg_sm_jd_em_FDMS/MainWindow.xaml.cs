@@ -139,25 +139,45 @@ namespace dg_sm_jd_em_FDMS
                     // if correctly recieved - insert into database 
                     try
                     {
-                        SqlDataAccess.insertRecord(telRecord, dbConStr);
+                        // SqlDataAccess.insertRecord(telRecord, dbConStr);
 
                         // if live data is on and the return is not Null then - add the new file to live_telemetry list
                         if (realTimeOn == true)
                         {
                             liveTel.Add(telRecord);
-                            
+
                         }
                         stream.Write(bytes);    // send confirmation response
                         stream.Flush();
                     }
-                    catch
+                    catch(Exception e)
                     {
-                        throw new Exception("Real time functionality not working");
+                        stream.Close();
+                        throw new Exception($"Real time functionality not working \nProblem: {e}");
                     }
                 }
+                else
+                {
+                    break;
+                }
+            }
+            if(realTimeOn)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    realTimeGrid.ItemsSource = null;
+                    realTimeGrid.ItemsSource = liveTel;
+                });
             }
             // clientList.Remove(client);  // remove user from the user list
             client.Close(); // shut down connection when user disconnects
+        }
+
+
+        private void updateLiveTable()
+        {
+            realTimeGrid.ItemsSource = null;
+            realTimeGrid.ItemsSource = liveTel;
         }
 
         /*

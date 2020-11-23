@@ -45,11 +45,14 @@ namespace FDMS_Aircraft_Transmission_System
                 foreach(String line in lines)   // read all lines recorded from file
                 {
                     Telemetry extractedTel = processLine(line, tail);   // extract telemetry from line
-                    Packet packet = generatePacket(extractedTel, packetNum);
+                    if(extractedTel != null)
+                    {
+                        Packet packet = generatePacket(extractedTel, packetNum);
 
-                    sendPacket(packet, stream); // call function to send line to the ground terminal
+                        sendPacket(packet, stream); // call function to send line to the ground terminal
 
-                    packetNum++;    // increment packetNum
+                        packetNum++;    // increment packetNum
+                    }
                 }
 
                 //numOfPackets = sendPackets("C:\\tmp\\C-FGAX.txt", stream, numOfPackets);
@@ -88,7 +91,10 @@ namespace FDMS_Aircraft_Transmission_System
          */
         private static Telemetry processLine(String line, String tail)
         {
-            
+            if(line.Contains ('\0'))
+            {
+                return null;
+            }
             string[] aircraftData = line.Split(',');
             try
             {
@@ -136,7 +142,7 @@ namespace FDMS_Aircraft_Transmission_System
 
             byte[] bytes = System.Text.Encoding.ASCII.GetBytes(JSONPacket);
 
-            bool successfulPacket = false;
+            // bool successfulPacket = false;
 
             byte[] readBytes = new byte[256];
 
