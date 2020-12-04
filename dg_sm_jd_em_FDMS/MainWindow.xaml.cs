@@ -18,6 +18,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
+using System.Data;
 
 namespace dg_sm_jd_em_FDMS
 {
@@ -34,6 +35,8 @@ namespace dg_sm_jd_em_FDMS
         private List<Telemetry> searchTel;
         private String dbConStr;
         public bool realTimeOn;
+        private DataTable liveTable;
+        private DataTable searchTable;
 
         public MainWindow()
         {
@@ -51,8 +54,9 @@ namespace dg_sm_jd_em_FDMS
 
             // bind the database to the live telemetry list
             realTimeGrid.ItemsSource = liveTel;
-            searchGrid.ItemsSource = searchTel;
 
+
+            //searchGrid.ItemsSource = searchTel;
 
             // initialize the tcp socket listener
             // set the port and Ip address
@@ -84,18 +88,20 @@ namespace dg_sm_jd_em_FDMS
             isConnected = true;
             try
             {
-                while(isConnected)
-                {
-                    // wait for a client to connect
-                    TcpClient client = server.AcceptTcpClient();
+                //while(isConnected)
+                //{
+                //    // wait for a client to connect
+                //    TcpClient client = server.AcceptTcpClient();
 
-                    // prepare thread to listen for messages
-                    ParameterizedThreadStart messageThreadStart = new ParameterizedThreadStart(waitForMessage);
-                    Thread waitThread = new Thread(messageThreadStart);
+                //    // prepare thread to listen for messages
+                //    ParameterizedThreadStart messageThreadStart = new ParameterizedThreadStart(waitForMessage);
+                //    Thread waitThread = new Thread(messageThreadStart);
 
-                    clientList.Add(client); // add client to the client list
-                    waitThread.Start(client);
-                }
+                //    clientList.Add(client); // add client to the client list
+                //    waitThread.Start(client);
+                //}
+                TcpClient client = server.AcceptTcpClient();
+                waitForMessage(client);
             }
             catch
             {
@@ -124,6 +130,7 @@ namespace dg_sm_jd_em_FDMS
 
             while ((i = stream.Read(bytes, 0, bytes.Length)) != 0) // iterate through read stream
             {
+                String recData = System.Text.Encoding.ASCII.GetString(bytes, 0, bytes.Length);
                 // process the message that has been recieved 
                 Telemetry telRecord = TelProcess.process(bytes);
 
@@ -138,17 +145,39 @@ namespace dg_sm_jd_em_FDMS
                         if (realTimeOn == true)
                         {
                             liveTel.Add(telRecord);
-                            stream.Write(bytes);    // send confirmation response
+
                         }
+                        stream.Write(bytes);    // send confirmation response
+                        stream.Flush();
                     }
-                    catch
+                    catch(Exception e)
                     {
-                        throw new Exception("Real time functionality not working");
+                        stream.Close();
+                        throw new Exception($"Real time functionality not working \nProblem: {e}");
                     }
                 }
+                else
+                {
+                    break;
+                }
             }
-            clientList.Remove(client);  // remove user from the user list
+            if(realTimeOn)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    realTimeGrid.ItemsSource = null;
+                    realTimeGrid.ItemsSource = liveTel;
+                });
+            }
+            // clientList.Remove(client);  // remove user from the user list
             client.Close(); // shut down connection when user disconnects
+        }
+
+
+        private void updateLiveTable()
+        {
+            realTimeGrid.ItemsSource = null;
+            realTimeGrid.ItemsSource = liveTel;
         }
 
         /*
@@ -180,16 +209,18 @@ namespace dg_sm_jd_em_FDMS
             else
             {
                 searchTel.Clear();
+                searchGrid.ItemsSource = null;
+                searchGrid.Items.Clear();
 
                 String search = searchTxtBox.Text;
                 List<Telemetry> telSearch = SqlDataAccess.getRecords(search, dbConStr);
-                if(telSearch != null)
+                if(telSearch != null && telSearch.Count != 0)
                 {
                     foreach (Telemetry tel in telSearch)
                     {
                         searchTel.Add(tel);
                     }
-                    
+                    searchGrid.ItemsSource = searchTel;
                 }
                 else
                 {

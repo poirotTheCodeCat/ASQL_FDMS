@@ -14,9 +14,18 @@ namespace dg_sm_jd_em_FDMS
          */
         public static Telemetry process(byte[] packetBytes)
         {
-            String recMessage = System.Text.Encoding.ASCII.GetString(packetBytes);
-            Packet packet = JsonConvert.DeserializeObject<Packet>(recMessage.Trim());
-            return process(packet);
+            try
+            {
+                String recMessage = System.Text.Encoding.ASCII.GetString(packetBytes, 0, packetBytes.Length);
+                int endIndex = recMessage.IndexOf('\0');
+                String msg = recMessage.Substring(0, (endIndex));
+                Packet packet = JsonConvert.DeserializeObject<Packet>(msg.Trim());
+                return process(packet);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /*

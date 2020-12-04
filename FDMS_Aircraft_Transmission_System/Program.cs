@@ -12,7 +12,7 @@ namespace FDMS_Aircraft_Transmission_System
         static void Main(string[] args)
         {
             string serverName = "127.0.0.1";
-            int port = 15000;
+            Int32 port = 15000;
             // int numOfPackets = 1;
 
             try
@@ -45,11 +45,14 @@ namespace FDMS_Aircraft_Transmission_System
                 foreach(String line in lines)   // read all lines recorded from file
                 {
                     Telemetry extractedTel = processLine(line, tail);   // extract telemetry from line
-                    Packet packet = generatePacket(extractedTel, packetNum);
+                    if(extractedTel != null)
+                    {
+                        Packet packet = generatePacket(extractedTel, packetNum);
 
-                    sendPacket(packet, stream); // call function to send line to the ground terminal
+                        sendPacket(packet, stream); // call function to send line to the ground terminal
 
-                    packetNum++;    // increment packetNum
+                        packetNum++;    // increment packetNum
+                    }
                 }
 
                 //numOfPackets = sendPackets("C:\\tmp\\C-FGAX.txt", stream, numOfPackets);
@@ -88,6 +91,10 @@ namespace FDMS_Aircraft_Transmission_System
          */
         private static Telemetry processLine(String line, String tail)
         {
+            if(line.Contains ('\0'))
+            {
+                return null;
+            }
             string[] aircraftData = line.Split(',');
             try
             {
@@ -131,33 +138,44 @@ namespace FDMS_Aircraft_Transmission_System
         {
             String JSONPacket = JsonConvert.SerializeObject(packet);
 
-            // bug in JsonConvert adds extra }, get rid of it manually
-            // JSONPacket.Remove(JSONPacket.Length-1);
+            JSONPacket = JSONPacket + '\0';
 
             byte[] bytes = System.Text.Encoding.ASCII.GetBytes(JSONPacket);
 
-            bool successfulPacket = false;
+            // bool successfulPacket = false;
 
-            while(!successfulPacket)
-            {
-                byte[] readBytes = new byte[1024];
+            byte[] readBytes = new byte[256];
 
-                stream.Write(bytes, 0, bytes.Length);
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Flush();
 
-                // waits for the response packet
-                stream.Read(readBytes, 0, bytes.Length);
+            stream.Read(readBytes, 0, readBytes.Length);
 
-                // convert byte data back into packet
-                String recPacketStr = System.Text.Encoding.ASCII.GetString(bytes);
-                Packet recPacket = JsonConvert.DeserializeObject<Packet>(recPacketStr);
+            //stream.Read(readBytes, 0, bytes.Length);
 
-                // if the packet sequence and checksum is identical between the sent and recieved packets, successfulPacket is set to true
-                // to move onto sending the next packet
-                if (recPacket.Head.PacketNum == packet.Head.PacketNum && recPacket.Trailer.Checksum == packet.Trailer.Checksum)
-                {
-                    successfulPacket = true;
-                }
-            }
+            //while (!successfulPacket)
+            //{
+            //    byte[] readBytes = new byte[1024];
+
+            //    stream.Write(bytes, 0, bytes.Length);
+            //    stream.Flush();
+
+            //    // waits for the response packet
+
+            //    stream.Read(readBytes, 0, bytes.Length);
+
+            //    // convert byte data back into packet
+            //    String recPacketStr = System.Text.Encoding.ASCII.GetString(bytes);
+            //    Packet recPacket = JsonConvert.DeserializeObject<Packet>(recPacketStr);
+
+
+            //    // if the packet sequence and checksum is identical between the sent and recieved packets, successfulPacket is set to true
+            //    // to move onto sending the next packet
+            //    if (recPacket.Head.PacketNum == packet.Head.PacketNum && recPacket.Trailer.Checksum == packet.Trailer.Checksum)
+            //    {
+            //        successfulPacket = true;
+            //    }
+            //}
         }
     }
 }
