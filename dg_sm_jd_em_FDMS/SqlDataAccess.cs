@@ -5,10 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.Odbc;
 using System.Data.Common;
+using System.Configuration;
 
 namespace dg_sm_jd_em_FDMS
 {
-    class SqlDataAccess
+    public class SqlDataAccess
     {
         /*
          * Function: getRecords(string tailNum, string connectionString)

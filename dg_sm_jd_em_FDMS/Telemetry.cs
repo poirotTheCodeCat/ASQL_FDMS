@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dg_sm_jd_em_FDMS
 {
-    class Telemetry
+    public class Telemetry
     {
         private String tailNum;
         private double accel_x;

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dg_sm_jd_em_FDMS", "dg_sm_jd_em_FDMS.csproj", "{F9156508-432C-4816-B323-FE341386C9AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FDMS_Aircraft_Transmission_System", "..\FDMS_Aircraft_Transmission_System\FDMS_Aircraft_Transmission_System.csproj", "{4029B8A2-A461-45A2-AC3E-894073C5CF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FDMS_Aircraft_Transmission_System", "..\FDMS_Aircraft_Transmission_System\FDMS_Aircraft_Transmission_System.csproj", "{4029B8A2-A461-45A2-AC3E-894073C5CF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{3E64CFA9-C48B-4AE0-97D2-2DABEF160D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4029B8A2-A461-45A2-AC3E-894073C5CF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E64CFA9-C48B-4AE0-97D2-2DABEF160D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E64CFA9-C48B-4AE0-97D2-2DABEF160D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E64CFA9-C48B-4AE0-97D2-2DABEF160D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E64CFA9-C48B-4AE0-97D2-2DABEF160D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,3 +11,16 @@ C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcore
 C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.pdb
 C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 C:\Users\Daniel\Desktop\FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.csproj.CopyComplete
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.exe
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.deps.json
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.runtimeconfig.json
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.runtimeconfig.dev.json
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.dll
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.pdb
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.csprojAssemblyReference.cache
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.AssemblyInfoInputs.cache
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.AssemblyInfo.cs
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.csproj.CopyComplete
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.dll
+\\Mac\Home\Documents\Conestoga\Level3\Repos\ASQL_FDMS\FDMS_Aircraft_Transmission_System\obj\Debug\netcoreapp3.0\FDMS_Aircraft_Transmission_System.pdb
