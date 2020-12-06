@@ -5,16 +5,23 @@ using System.Collections.Generic;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class TestsFDMS
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AccessDatabaseTest()
         {
             string dbConStr = "Data Source=SASHAMALESEFDB0;Initial Catalog=GroundTerminal;Integrated Security=True;";
             string search = "CFJAX";
-            List<Telemetry> telSearch = SqlDataAccess.getRecords(search, dbConStr);
+            try
+            {
+                List<Telemetry> telSearch = SqlDataAccess.getRecords(search, dbConStr);
+                Assert.AreEqual(telSearch.Count, 0);
+            }
+            catch (System.Exception e)
+            {
+                Assert.Fail();
+            }
 
-            Assert.AreEqual(telSearch.Count, 0);
         }
     }
 }
