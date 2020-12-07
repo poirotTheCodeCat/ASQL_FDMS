@@ -42,5 +42,85 @@ namespace UnitTests
         
         
         
+        [TestMethod]
+        public void CheckChecksumTest()
+        {
+            Telemetry testTel = new Telemetry("C_FGAX", -0.319754, -0.716176, 1.797150, 2154.670410, 1643.844116, 0.022278, 0.033622, DateTime.Now);
+            int testChecksum = Packet.calculateCheckSum(testTel);
+
+            Assert.AreEqual(testChecksum, 547);
+        }
+
+        
+
+        [TestMethod]
+        public void testOpenFileSuccess()
+        {
+            string filePath = "C:\\tmp\\C-FGAX.txt";
+
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines(filePath);
+                Assert.IsTrue(true);
+            }
+            catch
+            {
+                Assert.Fail();
+            }
+        }
+
+
+
+        [TestMethod]
+        public void testOpenFileFailure()
+        {
+            string filePath = "C:\\tmp\\Non-Existent.txt";
+
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines(filePath);
+                Assert.Fail();
+            }
+            catch
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+
+
+        [TestMethod]
+        public void CheckProcessLineTest()
+        {
+            string line = " 7_8_2018 19:34:3,-0.319754, -0.716176, 1.797150, 2154.670410, 1643.844116, 0.022278, 0.033622,";
+            string tail = "C-FGAX";
+            string testDate = " 7_8_2018 19:34:3";
+
+            Telemetry successTData = new Telemetry("C-FGAX", -0.319754, -0.716176, 1.797150, 2154.670410, 1643.844116, 0.022278, 0.033622, Convert.ToDateTime(testDate.Trim().Replace('_', '-')));
+
+            if (line.Contains('\0'))
+            {
+                Assert.Fail("Null Present");
+            }
+            string[] aircraftData = line.Split(',');
+            try
+            {
+                Telemetry tData = new Telemetry(tail, Double.Parse(aircraftData[1]), Double.Parse(aircraftData[2]), Double.Parse(aircraftData[3]), Double.Parse(aircraftData[4]),
+                    Double.Parse(aircraftData[5]), Double.Parse(aircraftData[6]), Double.Parse(aircraftData[7]), Convert.ToDateTime(aircraftData[0].Trim().Replace('_', '-')));
+
+                Assert.AreEqual(tData.TailNum, successTData.TailNum);
+                Assert.AreEqual(tData.Accel_x, successTData.Accel_x);
+                Assert.AreEqual(tData.Accel_y, successTData.Accel_y);
+                Assert.AreEqual(tData.Accel_z, successTData.Accel_z);
+                Assert.AreEqual(tData.Altitude, successTData.Altitude);
+                Assert.AreEqual(tData.Bank, successTData.Bank);
+                Assert.AreEqual(tData.Pitch, successTData.Pitch);
+                Assert.AreEqual(tData.TimeStamp, successTData.TimeStamp);
+            }
+            catch
+            {
+                Assert.Fail("Failed Try");
+            }
+        }
     }
 }
