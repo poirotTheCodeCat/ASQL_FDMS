@@ -46,7 +46,7 @@ namespace dg_sm_jd_em_FDMS
 
             // set the database connection string 
             // NOTE - THIS WOULD NOT NORMALLY BE STORED HERE - THIS IS FOR DEMO PURPOSES ONLY 
-            dbConStr = "data source=DESKTOP-AKELUKN;database = GroundTerminal; integrated security =SSPI";
+            dbConStr = "Data Source=SASHAMALESEFDB0;Initial Catalog=GroundTerminal;Integrated Security=True;";
 
             clientList = new List<TcpClient>();
             liveTel = new List<Telemetry>();

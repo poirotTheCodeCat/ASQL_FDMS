@@ -17,13 +17,20 @@ namespace FDMS_Aircraft_Transmission_System
 
             try
             {
+                // Get telemetry file from user, loop until valid file is found
+                String telFile = "";
+                while (telFile == "")
+                {
+                    telFile = getTelemetryFile();
+
+                }
+
                 // start a tcp client connection with the aircraft Ground Terminal
                 TcpClient client = new TcpClient();
                 client.Connect(serverName, port);
                 NetworkStream stream = client.GetStream();
 
-                //String telFile = args[0];   // the file should be specified as a command line argument 
-                String telFile = "C:\\Users\\Daniel\\Desktop\\FDMS\\FDMS_Aircraft_Transmission_System\\C-FGAX.txt";
+                //String telFile = "C:\\Users\\Daniel\\Desktop\\FDMS\\FDMS_Aircraft_Transmission_System\\C-FGAX.txt";
                 String tail = getTail(telFile); // get the tail number from the specified file
 
                 String[] lines = null;
@@ -37,7 +44,7 @@ namespace FDMS_Aircraft_Transmission_System
                     // close the connection to the ground terminal
                     client.Close();
                     stream.Close();
-                    throw new Exception("Could not find the specified file");
+                    throw new Exception("Could not read from the specified file");
                 }
 
                 int packetNum = 1; // initialize packet number
@@ -55,9 +62,6 @@ namespace FDMS_Aircraft_Transmission_System
                     }
                 }
 
-                //numOfPackets = sendPackets("C:\\tmp\\C-FGAX.txt", stream, numOfPackets);
-                //numOfPackets = sendPackets("C:\\tmp\\C-GEFC.txt", stream, numOfPackets);
-                //numOfPackets = sendPackets("C:\\tmp\\C-QWWT.txt", stream, numOfPackets);
 
                 // close the connection to the ground terminal
                 client.Close();
@@ -70,9 +74,37 @@ namespace FDMS_Aircraft_Transmission_System
         }
 
         /*
+         * Function: getTelemetryFile()
+         * Description: Prompts the user for a file name at the command prompt 
+        */
+        private static string getTelemetryFile()
+        {
+            string file = "";
+            Console.Clear();
+            Console.WriteLine("Please specify the filepath of the Telemetry file you want to read from: ");
+            file = Console.ReadLine();
+            try
+            {
+                if (!System.IO.File.Exists(file))
+                {
+                    file = "";
+                    Console.WriteLine("That file does not exist. Please press any key to try again.");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return file;
+
+        }
+
+        /*
          * Function: getTail(String fileName)
          * Description: retrieves the tail string from the end of the filename
-         */
+        */
         private static String getTail(String fileName)
         {
             // regex to match the aircraft tail from the filename
