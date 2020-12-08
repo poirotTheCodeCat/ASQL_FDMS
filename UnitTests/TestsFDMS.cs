@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using dg_sm_jd_em_FDMS;
 using System.Collections.Generic;
 using System;
+using System.Text.RegularExpressions;
 
 namespace UnitTests
 {

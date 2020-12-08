@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dg_sm_jd_em_FDMS
 {
-    class PacketBody
+    public class PacketBody
     {
         private string teldata;
 

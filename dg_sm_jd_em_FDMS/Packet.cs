@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dg_sm_jd_em_FDMS
 {
-    class Packet
+    public class Packet
     {
         private PacketHead head;
         private PacketBody body;

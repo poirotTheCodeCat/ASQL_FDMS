@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FDMS_Aircraft_Transmission_System
 {
-    class Telemetry
+    public class Telemetry
     {
         private String tailNum;
         private double accel_x;

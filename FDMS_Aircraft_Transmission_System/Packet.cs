@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FDMS_Aircraft_Transmission_System
 {
-    class Packet
+    public class Packet
     {
         private PacketHead head;
         private PacketBody body;

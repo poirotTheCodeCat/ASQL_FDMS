@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FDMS_Aircraft_Transmission_System
 {
-    class PacketHead
+    public class PacketHead
     {
         private string tailNum;
         private int packetNum;
