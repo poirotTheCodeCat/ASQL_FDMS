@@ -49,7 +49,7 @@ namespace dg_sm_jd_em_FDMS
                     return telList;
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return null;
             }
@@ -60,10 +60,11 @@ namespace dg_sm_jd_em_FDMS
          * Function: insertRecord(Telemetry telInsert, string connectionString)
          * Description: Inserts a telemetry record into the database
          */
-        public static void insertRecord(Telemetry telInsert, string connectionString)
+        public static int insertRecord(Telemetry telInsert, string connectionString)
         {
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
+                int result = 0;
                 try
                 {
                     connection.Open();
@@ -81,7 +82,7 @@ namespace dg_sm_jd_em_FDMS
                     cmd.Parameters.Add(new SqlParameter("@TimeStamp", telInsert.TimeStamp));
 
                     // execute sql stored procedure 
-                    cmd.ExecuteScalar();
+                    result = Convert.ToInt32(cmd.ExecuteScalar());
                 }
                 catch
                 {
@@ -90,7 +91,10 @@ namespace dg_sm_jd_em_FDMS
                 finally
                 {
                     connection.Close();
+                    
                 }
+
+                return result;
             }
 
         }
